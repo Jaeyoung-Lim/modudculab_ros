@@ -24,6 +24,10 @@ The versions used is gazebo6. For instructions in using gazebo_ros_pkgs see [gaz
 ```
 apt-get install ros-indigo-gazebo6-ros-pkgs
 ```
+
+## Install MAVROS
+Follow installation instructions [here](https://github.com/mavlink/mavros/blob/master/mavros/README.md#installation)
+
 ## Install PX4
 To install the PX4 app
 ```

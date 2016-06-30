@@ -1,0 +1,40 @@
+<launch>
+
+<arg name="fcu_url" default= "udp://:14540@127.0.0.1:14557"/>
+<arg name="gcs_url" default="" />
+<arg name="tgt_system" default="1" />
+<arg name="tgt_component" default="1" />
+
+
+<node name="mavros" pkg="mavros" type="mavros_node" output="screen">
+	<param name="fcu_url" value="$(arg fcu_url)" />
+	<param name="gcs_url" value="$(arg gcs_url)" />
+	<param name="target_system_id" value="$(arg tgt_system)" />
+	<param name="target_component_id" value="$(arg tgt_component)" />
+
+	<!--rosparam command="load" file="$(find mavros)/launch/px4_blacklist.yaml"-->
+
+	<!-- enable heartbeat send and reduce timeout -->
+	<param name="conn_heartbeat" value="5.0" />
+	<param name="conn_timeout" value="5.0" />
+	<!-- automatically start mavlink on USB -->
+	<param name="startup_px4_usb_quirk" value="true" />
+	<param name="mocap/use_tf" value="true"/>
+	<param name="mocap/use_pose" value="false"/>
+</node>
+
+<node name="setpoint_pub" pkg="inrol_ros" type="pub_setpoints_pos" output="screen">
+
+
+</node>
+
+<node pkg="vicon_bridge" type="vicon_bridge" name="vicon" output="screen">
+	<param name="stream_mode" value="ServerPush" type="str" />
+	<!--param name="datastream_hostport" value="147.47.175.54:801" type="str" /-->
+	<param name="datastream_hostport" value="147.46.175.54:801" type="str" />
+	<param name="tf_ref_frame_id" value="/world" type="str" />
+	<remap from="/vicon/quad/quad" to="/mavros/mocap/tf"/>	       
+</node>
+
+
+</launch>
