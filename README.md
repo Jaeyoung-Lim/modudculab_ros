@@ -6,7 +6,6 @@ modu dcu labs is a ROS package which will be used in the seminar for MAVROS and 
 ## Install ROS
 Ros installation [tutorials](http://wiki.ros.org/indigo/Installation/Ubuntu)
 
-
 ## Install Gazebo and gazebo_ros_pkgs
 For installation instructions of gazebo, there is a [Tutorial](http://dev.px4.io/simulation-gazebo.html) in the px4 developer documentation page. 
 - Install gazebo6
@@ -30,6 +29,16 @@ Follow installation instructions [here](https://github.com/mavlink/mavros/blob/m
 
 ## Install PX4
 To install the PX4 app
+Install Dependencies
+```
+sudo add-apt-repository ppa:george-edison55/cmake-3.x -y
+sudo apt-get update
+sudo apt-get install python-argparse git-core wget zip \
+		  python-empy qtcreator cmake build-essential genromfs -y
+# simulation tools
+		  sudo apt-get install ant protobuf-compiler libeigen3-dev libopencv-dev openjdk-8-jdk openjdk-8-jre clang-3.5 lldb-3.5 -y
+```
+Install PX4 app
 ```
 mkdir -p ~/src
 cd ~/src
