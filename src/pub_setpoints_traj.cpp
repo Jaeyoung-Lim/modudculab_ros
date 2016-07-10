@@ -11,10 +11,10 @@
 #include <mavros_msgs/State.h>
 #include "math.h"
 
-double r = 1.0;
+double r;
 double theta;
 double count=0.0;
-double wn = 1.0;
+double wn;
 
 mavros_msgs::State current_state;
 void state_cb(const mavros_msgs::State::ConstPtr& msg){
@@ -37,7 +37,10 @@ int main(int argc, char **argv)
 
     //the setpoint publishing rate MUST be faster than 2Hz
     ros::Rate rate(20.0);
+	
 
+	nh.param("pub_setpoints_traj/wn", wn, 1.0);
+	nh.param("pub_setpoints_traj/r", r, 1.0);
     // wait for FCU connection
     while(ros::ok() && current_state.connected){
         ros::spinOnce();

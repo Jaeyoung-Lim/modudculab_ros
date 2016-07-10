@@ -23,7 +23,7 @@
 	<param name="mocap/use_pose" value="false"/>
 </node>
 
-<node name="pub_setpoints" pkg="inrol_ros" type="pub_setpoints_pos" output="screen">
+<node name="pub_setpoints" pkg="modudculab_ros" type="pub_setpoints_pos" output="screen">
 
 
 </node>

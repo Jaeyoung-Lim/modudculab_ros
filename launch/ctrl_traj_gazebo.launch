@@ -23,8 +23,9 @@
 	<param name="mocap/use_pose" value="false"/>
 </node>
 
-<node name="pub_setpoint_traj" pkg="modudculab_ros" type="pub_setpoints_traj" output="screen">
-
+<node name="pub_setpoints_traj" pkg="modudculab_ros" type="pub_setpoints_traj" output="screen">
+	<param name="wn" value="0.2" />
+	<param name="r" value="3.0" />
 
 </node>
 
