@@ -138,6 +138,9 @@ add_dependencies(pub_setpoints_traj modudculab_ros_generate_messages_cpp)
 add_executable(pub_setpoints_att src/pub_setpoints_att.cpp)
 target_link_libraries(pub_setpoints_att ${catkin_LIBRARIES})
 add_dependencies(pub_setpoints_att modudculab_ros_generate_messages_cpp)
+add_executable(test_setpoints_traj src/test_setpoints_traj.cpp)
+target_link_libraries(test_setpoints_traj ${catkin_LIBRARIES})
+add_dependencies(test_setpoints_traj modudculab_ros_generate_messages_cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(modudculab_ros_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
